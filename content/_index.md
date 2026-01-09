@@ -1,13 +1,13 @@
 +++
 draft = false
-[links]
-[links.linkedin]
-name = "LinkedIn"
-url = "https://www.linkedin.com/in/francoishaurie/"
-
-[links.email]
-name = "email"
-url = "mailto:francois.haurie@gmail.com"
+#[links]
+#[links.linkedin]
+#name = "LinkedIn"
+#url = "https://www.linkedin.com/in/francoishaurie/"
+#
+#[links.email]
+#name = "email"
+#url = "mailto:francois.haurie@gmail.com"
 
 +++
 
