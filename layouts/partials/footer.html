@@ -1,0 +1,15 @@
+<footer class="footer">
+  <div class="footer__inner">
+      <div class="copyright">
+        <span>© {{ now.Year }} </span>
+      </div>
+  </div>
+</footer>
+
+
+{{ $ctx := dict
+"page" .
+"menu" $.Site.Menus.footer
+}}
+
+{{ partial "menu.html" $ctx }}

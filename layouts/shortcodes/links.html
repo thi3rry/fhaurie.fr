@@ -1,0 +1,17 @@
+{{ $linksParam := .Get "links" }}
+{{ $links := .Page.Params.links }}
+
+
+<div class="links-container">
+    {{ with $links }}
+    <ul class="links-list">
+        {{ range . }}
+        <li>
+            <a href="{{ .url | safeURL }}" class="link-button" target="_blank" rel="noopener">
+                {{ .name }}
+            </a>
+        </li>
+        {{ end }}
+    </ul>
+    {{ end }}
+</div>

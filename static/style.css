@@ -1,0 +1,13 @@
+
+:root {
+  --background: #ffffff;
+  --foreground: #000000;
+  --accent: #b9975c;
+  --radius: 0;
+  --font-size: 1rem;
+  --line-height: 1.54em;
+}
+
+body {
+  font-family: 'Helvetica Neue', Helvetica, Arial, sans-serif;
+}

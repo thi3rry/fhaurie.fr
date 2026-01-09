@@ -1,0 +1,17 @@
+baseURL = 'https://fhaurie.fr/'
+languageCode = 'fr-FR'
+title = 'François Haurie'
+theme = 'terminal'
+[params]
+contentTypeName = "posts"
+showMenuItems = 2
+fullWidthTheme = false
+centerTheme = true
+
+[languages]
+[languages.fr]
+languageName = "Français"
+title = "François Haurie"
+[languages.fr.params.logo]
+logoText = "François Haurie"
+logoHomeLink = "/"
