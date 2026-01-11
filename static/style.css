@@ -1,11 +1,21 @@
 
 :root {
-  --background: #000000;
-  --foreground: #ffffff;
-  --accent: #edc272;
+  --background: #ffffff;
+  --foreground: #000000;
+  --accent: #b9975c;
   --radius: 0;
   --font-size: 1rem;
   --line-height: 1.54em;
+}
+
+body.dark {
+
+    --background: #000000;
+    --foreground: #ffffff;
+    --accent: #edc272;
+    --radius: 0;
+    --font-size: 1rem;
+    --line-height: 1.54em;
 }
 
 body {

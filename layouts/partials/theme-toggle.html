@@ -1,0 +1,73 @@
+<button id="theme-toggle" class="theme-toggle" aria-label="Toggle dark mode">
+  <span class="theme-toggle__icon">☀️</span>
+</button>
+
+<style>
+.theme-toggle {
+  background: none;
+  border: 2px solid var(--foreground);
+  cursor: pointer;
+  font-size: 1.2rem;
+  padding: 0.5rem;
+  border-radius: 4px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: all 0.3s ease;
+  margin-left: 1rem;
+}
+
+.theme-toggle:hover {
+  background: var(--accent);
+  border-color: var(--accent);
+}
+
+.theme-toggle__icon {
+  display: block;
+  line-height: 1;
+}
+
+@media (max-width: 684px) {
+  .theme-toggle {
+    margin-left: 0.5rem;
+    padding: 0.4rem;
+    font-size: 1rem;
+  }
+}
+</style>
+
+<script>
+(function() {
+  const toggle = document.getElementById('theme-toggle');
+  if (!toggle) return;
+
+  const icon = toggle.querySelector('.theme-toggle__icon');
+  const body = document.body;
+
+  // Check saved theme preference or default to dark
+  const savedTheme = localStorage.getItem('theme');
+
+  if (savedTheme === 'light') {
+    // User explicitly chose light mode
+    body.classList.remove('dark');
+    icon.textContent = '☀️';
+  } else {
+    // Default to dark mode (savedTheme === 'dark' or null)
+    body.classList.add('dark');
+    icon.textContent = '🌙';
+  }
+
+  // Toggle theme on button click
+  toggle.addEventListener('click', function() {
+    body.classList.toggle('dark');
+
+    if (body.classList.contains('dark')) {
+      icon.textContent = '🌙';
+      localStorage.setItem('theme', 'dark');
+    } else {
+      icon.textContent = '☀️';
+      localStorage.setItem('theme', 'light');
+    }
+  });
+})();
+</script>

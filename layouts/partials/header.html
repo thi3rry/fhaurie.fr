@@ -12,6 +12,7 @@
     {{ if len $.Site.Menus }}
     {{ partial "mobile-menu.html" $ctx }}
     {{ end }}
+    {{ partial "theme-toggle.html" . }}
     {{ if and $.Site.Params.showLanguageSelector (len $.Site.Home.AllTranslations) }}
     {{ partial "language-menu.html" . }}
     {{ end }}
