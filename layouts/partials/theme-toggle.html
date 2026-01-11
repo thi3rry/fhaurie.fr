@@ -1,5 +1,20 @@
 <button id="theme-toggle" class="theme-toggle" aria-label="Toggle dark mode">
-  <span class="theme-toggle__icon">☀️</span>
+  <svg class="theme-toggle__icon" width="20" height="20" viewBox="0 0 20 20" fill="none" xmlns="http://www.w3.org/2000/svg">
+    <g class="icon-moon">
+      <path d="M17 10.5C16.3 14.4 12.8 17.3 8.8 17C4.8 16.7 1.7 13.6 1.4 9.6C1.1 5.6 4 2.1 7.9 1.4C8.6 1.3 9 2.1 8.6 2.6C7.4 4.2 6.9 6.3 7.3 8.4C7.9 11.3 10.1 13.5 13 14.1C15.1 14.5 17.2 14 18.8 12.8C19.3 12.4 20.1 12.8 20 13.5C19.8 14.2 19.5 14.8 19.1 15.4" stroke="currentColor" stroke-width="2" stroke-linecap="round"/>
+    </g>
+    <g class="icon-sun">
+      <circle cx="10" cy="10" r="4" stroke="currentColor" stroke-width="2"/>
+      <line x1="10" y1="1" x2="10" y2="3" stroke="currentColor" stroke-width="2" stroke-linecap="round"/>
+      <line x1="10" y1="17" x2="10" y2="19" stroke="currentColor" stroke-width="2" stroke-linecap="round"/>
+      <line x1="19" y1="10" x2="17" y2="10" stroke="currentColor" stroke-width="2" stroke-linecap="round"/>
+      <line x1="3" y1="10" x2="1" y2="10" stroke="currentColor" stroke-width="2" stroke-linecap="round"/>
+      <line x1="16.24" y1="16.24" x2="14.83" y2="14.83" stroke="currentColor" stroke-width="2" stroke-linecap="round"/>
+      <line x1="5.17" y1="5.17" x2="3.76" y2="3.76" stroke="currentColor" stroke-width="2" stroke-linecap="round"/>
+      <line x1="16.24" y1="3.76" x2="14.83" y2="5.17" stroke="currentColor" stroke-width="2" stroke-linecap="round"/>
+      <line x1="5.17" y1="14.83" x2="3.76" y2="16.24" stroke="currentColor" stroke-width="2" stroke-linecap="round"/>
+    </g>
+  </svg>
 </button>
 
 <style>
@@ -7,7 +22,6 @@
   background: none;
   border: 2px solid var(--foreground);
   cursor: pointer;
-  font-size: 1.2rem;
   padding: 0.5rem;
   border-radius: 4px;
   display: flex;
@@ -15,6 +29,8 @@
   justify-content: center;
   transition: all 0.3s ease;
   margin-left: 1rem;
+  width: 40px;
+  height: 40px;
 }
 
 .theme-toggle:hover {
@@ -24,14 +40,37 @@
 
 .theme-toggle__icon {
   display: block;
-  line-height: 1;
+  color: var(--foreground);
+  transition: transform 0.3s ease;
+}
+
+.theme-toggle:hover .theme-toggle__icon {
+  transform: rotate(20deg);
+}
+
+.icon-moon,
+.icon-sun {
+  transition: opacity 0.3s ease;
+}
+
+.icon-sun {
+  display: none;
+}
+
+.icon-moon {
+  display: block;
 }
 
 @media (max-width: 684px) {
   .theme-toggle {
     margin-left: 0.5rem;
-    padding: 0.4rem;
-    font-size: 1rem;
+    width: 36px;
+    height: 36px;
+  }
+
+  .theme-toggle__icon {
+    width: 18px;
+    height: 18px;
   }
 }
 </style>
@@ -41,8 +80,19 @@
   const toggle = document.getElementById('theme-toggle');
   if (!toggle) return;
 
-  const icon = toggle.querySelector('.theme-toggle__icon');
+  const iconMoon = toggle.querySelector('.icon-moon');
+  const iconSun = toggle.querySelector('.icon-sun');
   const body = document.body;
+
+  function updateIcon(isDark) {
+    if (isDark) {
+      iconMoon.style.display = 'block';
+      iconSun.style.display = 'none';
+    } else {
+      iconMoon.style.display = 'none';
+      iconSun.style.display = 'block';
+    }
+  }
 
   // Check saved theme preference or default to dark
   const savedTheme = localStorage.getItem('theme');
@@ -50,22 +100,23 @@
   if (savedTheme === 'light') {
     // User explicitly chose light mode
     body.classList.remove('dark');
-    icon.textContent = '☀️';
+    updateIcon(false);
   } else {
     // Default to dark mode (savedTheme === 'dark' or null)
     body.classList.add('dark');
-    icon.textContent = '🌙';
+    updateIcon(true);
   }
 
   // Toggle theme on button click
   toggle.addEventListener('click', function() {
     body.classList.toggle('dark');
+    const isDark = body.classList.contains('dark');
 
-    if (body.classList.contains('dark')) {
-      icon.textContent = '🌙';
+    updateIcon(isDark);
+
+    if (isDark) {
       localStorage.setItem('theme', 'dark');
     } else {
-      icon.textContent = '☀️';
       localStorage.setItem('theme', 'light');
     }
   });
