@@ -5,7 +5,6 @@ draft = false
 
 # Galerie Photos
 
-Découvrez mes photos professionnelles et moments clés de ma carrière.
 
 {{< gallery images="/photos/gallerie-photos/photo-1.jpeg,/photos/gallerie-photos/photo-4.jpeg,/photos/gallerie-photos/photo-5.jpeg,/photos/gallerie-photos/photo-7.jpeg,/photos/gallerie-photos/photo-8.jpeg,/photos/gallerie-photos/photo-9.jpeg,/photos/gallerie-photos/photo-10.jpeg,/photos/gallerie-photos/photo-11.jpeg" >}}
 

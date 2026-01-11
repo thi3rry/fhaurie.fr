@@ -1,8 +1,7 @@
 +++
 draft = false
+title: François Haurie
 +++
-
-# François Haurie
 
 **Agent de Protection Rapprochée International - Instructeur Krav Maga**
 
