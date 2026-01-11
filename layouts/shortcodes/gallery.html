@@ -1,13 +1,22 @@
 {{- $images := split (.Get "images") "," -}}
-<div class="photo-gallery">
-  {{- range $images -}}
-    {{- $imageUrl := trim . " " -}}
-    <div class="gallery-item">
-      <a href="{{ $imageUrl }}" target="_blank">
-        <img src="{{ $imageUrl }}" alt="Photo de galerie" loading="lazy">
-      </a>
+{{- $galleryId := .Ordinal -}}
+<div class="photo-gallery" data-gallery-id="{{ $galleryId }}">
+  {{- range $index, $image := $images -}}
+    {{- $imageUrl := trim $image " " -}}
+    <div class="gallery-item" data-index="{{ $index }}">
+      <img src="{{ $imageUrl }}" alt="Photo de galerie" loading="lazy" class="gallery-thumbnail">
     </div>
   {{- end -}}
+</div>
+
+<div class="lightbox" id="lightbox-{{ $galleryId }}">
+  <div class="lightbox__overlay"></div>
+  <div class="lightbox__content">
+    <button class="lightbox__close" aria-label="Fermer">&times;</button>
+    <button class="lightbox__prev" aria-label="Photo précédente">&#8249;</button>
+    <button class="lightbox__next" aria-label="Photo suivante">&#8250;</button>
+    <img class="lightbox__image" src="" alt="Photo en grand">
+  </div>
 </div>
 
 <style>
@@ -23,23 +32,101 @@
   overflow: hidden;
   border-radius: 8px;
   aspect-ratio: 1;
+  cursor: pointer;
 }
 
-.gallery-item a {
-  display: block;
-  width: 100%;
-  height: 100%;
-}
-
-.gallery-item img {
+.gallery-thumbnail {
   width: 100%;
   height: 100%;
   object-fit: cover;
   transition: transform 0.3s ease;
 }
 
-.gallery-item:hover img {
+.gallery-item:hover .gallery-thumbnail {
   transform: scale(1.05);
+}
+
+.lightbox {
+  display: none;
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  z-index: 9999;
+}
+
+.lightbox.active {
+  display: block;
+}
+
+.lightbox__overlay {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: rgba(0, 0, 0, 0.95);
+}
+
+.lightbox__content {
+  position: relative;
+  width: 100%;
+  height: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 2rem;
+}
+
+.lightbox__image {
+  max-width: 90%;
+  max-height: 90%;
+  object-fit: contain;
+  position: relative;
+  z-index: 1;
+}
+
+.lightbox__close,
+.lightbox__prev,
+.lightbox__next {
+  position: absolute;
+  background: rgba(255, 255, 255, 0.1);
+  border: 2px solid var(--foreground);
+  color: var(--foreground);
+  font-size: 2rem;
+  cursor: pointer;
+  z-index: 2;
+  transition: all 0.3s ease;
+  padding: 0.5rem 1rem;
+  border-radius: 4px;
+}
+
+.lightbox__close:hover,
+.lightbox__prev:hover,
+.lightbox__next:hover {
+  background: var(--accent);
+  border-color: var(--accent);
+}
+
+.lightbox__close {
+  top: 1rem;
+  right: 1rem;
+  font-size: 3rem;
+  line-height: 1;
+  padding: 0 1rem;
+}
+
+.lightbox__prev {
+  left: 1rem;
+  top: 50%;
+  transform: translateY(-50%);
+}
+
+.lightbox__next {
+  right: 1rem;
+  top: 50%;
+  transform: translateY(-50%);
 }
 
 @media (max-width: 768px) {
@@ -47,5 +134,98 @@
     grid-template-columns: repeat(auto-fill, minmax(150px, 1fr));
     gap: 0.5rem;
   }
+
+  .lightbox__content {
+    padding: 1rem;
+  }
+
+  .lightbox__image {
+    max-width: 95%;
+    max-height: 95%;
+  }
+
+  .lightbox__close {
+    top: 0.5rem;
+    right: 0.5rem;
+    font-size: 2rem;
+    padding: 0 0.7rem;
+  }
+
+  .lightbox__prev,
+  .lightbox__next {
+    font-size: 1.5rem;
+    padding: 0.3rem 0.6rem;
+  }
+
+  .lightbox__prev {
+    left: 0.5rem;
+  }
+
+  .lightbox__next {
+    right: 0.5rem;
+  }
 }
 </style>
+
+<script>
+(function() {
+  const galleryId = {{ $galleryId }};
+  const gallery = document.querySelector('.photo-gallery[data-gallery-id="' + galleryId + '"]');
+  const lightbox = document.getElementById('lightbox-' + galleryId);
+  const lightboxImage = lightbox.querySelector('.lightbox__image');
+  const closeBtn = lightbox.querySelector('.lightbox__close');
+  const prevBtn = lightbox.querySelector('.lightbox__prev');
+  const nextBtn = lightbox.querySelector('.lightbox__next');
+  const overlay = lightbox.querySelector('.lightbox__overlay');
+  const items = gallery.querySelectorAll('.gallery-item');
+
+  const images = [
+    {{- range $index, $image := $images -}}
+      {{- if $index }},{{ end }}"{{ trim $image " " }}"
+    {{- end -}}
+  ];
+
+  let currentIndex = 0;
+
+  function openLightbox(index) {
+    currentIndex = index;
+    lightboxImage.src = images[currentIndex];
+    lightbox.classList.add('active');
+    document.body.style.overflow = 'hidden';
+  }
+
+  function closeLightbox() {
+    lightbox.classList.remove('active');
+    document.body.style.overflow = '';
+  }
+
+  function showNext() {
+    currentIndex = (currentIndex + 1) % images.length;
+    lightboxImage.src = images[currentIndex];
+  }
+
+  function showPrev() {
+    currentIndex = (currentIndex - 1 + images.length) % images.length;
+    lightboxImage.src = images[currentIndex];
+  }
+
+  // Event listeners
+  items.forEach((item, index) => {
+    item.addEventListener('click', () => openLightbox(index));
+  });
+
+  closeBtn.addEventListener('click', closeLightbox);
+  overlay.addEventListener('click', closeLightbox);
+  prevBtn.addEventListener('click', showPrev);
+  nextBtn.addEventListener('click', showNext);
+
+  // Keyboard navigation
+  document.addEventListener('keydown', (e) => {
+    if (!lightbox.classList.contains('active')) return;
+
+    if (e.key === 'Escape') closeLightbox();
+    if (e.key === 'ArrowLeft') showPrev();
+    if (e.key === 'ArrowRight') showNext();
+  });
+})();
+</script>
