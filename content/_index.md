@@ -40,7 +40,7 @@ Enseignement du Krav Maga et de la self-défense, avec une approche pragmatique 
 
 Découvrez mon parcours en images.
 
-{{< gallery images="/gallerie-photos/photo-1.jpeg,/gallerie-photos/photo-2.jpeg,/gallerie-photos/photo-3.jpeg" >}}
+{{< gallery images="/photos/gallerie-photos/photo-1.jpeg,/photos/gallerie-photos/photo-2.jpeg,/photos/gallerie-photos/photo-3.jpeg" >}}
 
-[Voir toutes les photos →](/gallerie-photos/)
+[Voir toutes les photos →](/photos/gallerie-photos/)
 
