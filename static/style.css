@@ -11,3 +11,13 @@
 body {
   font-family: 'Helvetica Neue', Helvetica, Arial, sans-serif;
 }
+
+
+ul.menu__dropdown, ul.menu__dropdown * {
+  word-break: initial;
+}
+ul.menu__dropdown, ul.menu__dropdown {
+  li {
+    min-width: 13rem;
+  }
+}
