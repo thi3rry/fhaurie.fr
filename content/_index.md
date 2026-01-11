@@ -1,6 +1,6 @@
 +++
 draft = false
-title: François Haurie
+title = "François Haurie"
 +++
 
 **Agent de Protection Rapprochée International - Instructeur Krav Maga**
