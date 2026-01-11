@@ -3,9 +3,18 @@ draft = false
 title = "François Haurie"
 +++
 
+## Contact
+
+**Email** : francois.haurie@protonmail.com
+**Téléphone** : [+33 6 15 24 11 06](tel:+33615241106)
+**Ville** : Biarritz 64200
+
+
 **Agent de Protection Rapprochée International - Instructeur Krav Maga**
 
 Basé à Biarritz, professionnel de la protection rapprochée et instructeur de Krav Maga. Fort d'un parcours opérationnel varié (aéronautique, entrepreneuriat, sports de combat), je mets mes compétences au service de la sécurité des personnes et de la formation en self-défense.
+
+
 
 ## Protection Rapprochée
 
@@ -27,11 +36,6 @@ Enseignement du Krav Maga et de la self-défense, avec une approche pragmatique 
 
 **Diplômes** : [Ceinture Noire 1er DARGA](/docs/francois-fekm-cn1.jpg),  [DIF Krav Maga](/docs/francois-fekm-dif.jpg)
 
-## Contact
-
-**Email** : francois.haurie@protonmail.com
-**Téléphone** : [+33 6 15 24 11 06](tel:+33615241106)
-**Ville** : Biarritz 64200
 
 ---
 
