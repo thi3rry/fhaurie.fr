@@ -11,43 +11,43 @@ centerTheme = true
 [[languages.fr.menu.main]]
 identifier = "cv"
 name = "CV"
-url = "/docs/00 CV HAURIE FRANCOIS MAJ8126.pdf"
+url = "/docs/00-cv-haurie-francois-maj8126.pdf"
 weight = 10
 
 [[languages.fr.menu.main]]
 identifier = "diplome-niv4"
 name = "Diplôme NIV 4"
-url = "/docs/01 Diplome NIV Agent de protection des personnes NIV 4.pdf"
+url = "/docs/01-diplome-niv-agent-de-protection-des-personnes-niv-4.pdf"
 weight = 20
 
 [[languages.fr.menu.main]]
 identifier = "conducteur-autorite"
 name = "Conducteur d'autorité ASP"
-url = "/docs/02 Certificat de conducteur d%27autorite ASP.pdf"
+url = "/docs/02-certificat-de-conducteur-dautorite-asp.pdf"
 weight = 30
 
 [[languages.fr.menu.main]]
 identifier = "epo"
 name = "Executive Protection Officer"
-url = "/docs/03 Executive protection officier EPO.pdf"
+url = "/docs/03-executive-protection-officier-epo.pdf"
 weight = 40
 
 [[languages.fr.menu.main]]
 identifier = "psd"
 name = "Protective Security Detail"
-url = "/docs/04 Protective security detail PSD.pdf"
+url = "/docs/04-protective-security-detail-psd.pdf"
 weight = 50
 
 [[languages.fr.menu.main]]
 identifier = "tecc"
 name = "TECC Tactical Emergency"
-url = "/docs/05 Certificat T E C C Tactical Emergency Casualty Care.pdf"
+url = "/docs/05-certificat-t-e-c-c-tactical-emergency-casualty-care.pdf"
 weight = 60
 
 [[languages.fr.menu.main]]
 identifier = "pistol"
 name = "Pistol Basic Training"
-url = "/docs/06 Certificat Pistol Basic Training.pdf"
+url = "/docs/06-certificat-pistol-basic-training.pdf"
 weight = 70
 
 [[languages.fr.menu.main]]

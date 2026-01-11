@@ -17,7 +17,7 @@ Services de protection pour VIP, personnalités et événements sensibles :
 - Gestion de crise et secourisme opérationnel
 - Conduite sécurisée d'autorité
 
-**Certifications** : [Executive Protection Officer (EPO)](/docs/03%20Executive%20protection%20officier%20EPO.pdf), [Protective Security Detail (PSD)](/docs/04%20Protective%20security%20detail%20PSD.pdf), [TECC Tactical Emergency](/docs/05%20Certificat%20T%20E%20C%20C%20Tactical%20Emergency%20Casualty%20Care.pdf), [Pistol Basic Training](/docs/06%20Certificat%20Pistol%20Basic%20Training.pdf), [Conducteur d'Autorité ASP](/docs/02%20Certificat%20de%20conducteur%20d%27autorite%20ASP.pdf), [Diplôme NIV 4](/docs/01%20Diplome%20NIV%20Agent%20de%20protection%20des%20personnes%20NIV%204.pdf)
+**Certifications** : [Executive Protection Officer (EPO)](/docs/03-executive-protection-officier-epo.pdf), [Protective Security Detail (PSD)](/docs/04-protective-security-detail-psd.pdf), [TECC Tactical Emergency](/docs/05-certificat-t-e-c-c-tactical-emergency-casualty-care.pdf), [Pistol Basic Training](/docs/06-certificat-pistol-basic-training.pdf), [Conducteur d'Autorité ASP](/docs/02-certificat-de-conducteur-dautorite-asp.pdf), [Diplôme NIV 4](/docs/01-diplome-niv-agent-de-protection-des-personnes-niv-4.pdf)
 
 ## Krav Maga
 
@@ -39,7 +39,7 @@ Enseignement du Krav Maga et de la self-défense, avec une approche pragmatique 
 
 Découvrez mon parcours en images.
 
-{{< gallery images="/photos/gallerie-photos/photo-1.jpeg,/photos/gallerie-photos/photo-2.jpeg,/photos/gallerie-photos/photo-3.jpeg" >}}
+{{< gallery images="/photos/gallerie-photos/photo-1.jpg,/photos/gallerie-photos/krav/photo-2.jpg,/photos/gallerie-photos/krav/photo-3.jpg" >}}
 
-[Voir toutes les photos →](/photos/gallerie-photos/)
+[Voir toutes les photos →](/gallerie-photos/)
 
